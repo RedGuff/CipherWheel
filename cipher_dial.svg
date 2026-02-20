@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520.000" height="520.000">
+<rect width="100%" height="100%" fill="white"/>
+<path d="M 260.000 10.000 A 250.000 250.000 0 0 1 308.773 14.804 L 293.165 93.267 A 170.000 170.000 0 0 0 260.000 90.000 Z" fill="none" stroke="black"/>
+<text x="280.584" y="51.011" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(5.625 280.584 51.011)">&#65;</text>
+<path d="M 308.773 14.804 A 250.000 250.000 0 0 1 355.671 29.030 L 325.056 102.940 A 170.000 170.000 0 0 0 293.165 93.267 Z" fill="none" stroke="black"/>
+<text x="320.960" y="59.043" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(16.875 320.960 59.043)">&#66;</text>
+<path d="M 355.671 29.030 A 250.000 250.000 0 0 1 398.893 52.133 L 354.447 118.650 A 170.000 170.000 0 0 0 325.056 102.940 Z" fill="none" stroke="black"/>
+<text x="358.993" y="74.797" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(28.125 358.993 74.797)">&#67;</text>
+<path d="M 398.893 52.133 A 250.000 250.000 0 0 1 436.777 83.223 L 380.208 139.792 A 170.000 170.000 0 0 0 354.447 118.650 Z" fill="none" stroke="black"/>
+<text x="393.223" y="97.668" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(39.375 393.223 97.668)">&#68;</text>
+<path d="M 436.777 83.223 A 250.000 250.000 0 0 1 467.867 121.107 L 401.350 165.553 A 170.000 170.000 0 0 0 380.208 139.792 Z" fill="none" stroke="black"/>
+<text x="422.332" y="126.777" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(50.625 422.332 126.777)">&#69;</text>
+<path d="M 467.867 121.107 A 250.000 250.000 0 0 1 490.970 164.329 L 417.060 194.944 A 170.000 170.000 0 0 0 401.350 165.553 Z" fill="none" stroke="black"/>
+<text x="445.203" y="161.007" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(61.875 445.203 161.007)">&#70;</text>
+<path d="M 490.970 164.329 A 250.000 250.000 0 0 1 505.196 211.227 L 426.733 226.835 A 170.000 170.000 0 0 0 417.060 194.944 Z" fill="none" stroke="black"/>
+<text x="460.957" y="199.040" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(73.125 460.957 199.040)">&#71;</text>
+<path d="M 505.196 211.227 A 250.000 250.000 0 0 1 510.000 260.000 L 430.000 260.000 A 170.000 170.000 0 0 0 426.733 226.835 Z" fill="none" stroke="black"/>
+<text x="468.989" y="239.416" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(84.375 468.989 239.416)">&#72;</text>
+<path d="M 510.000 260.000 A 250.000 250.000 0 0 1 505.196 308.773 L 426.733 293.165 A 170.000 170.000 0 0 0 430.000 260.000 Z" fill="none" stroke="black"/>
+<text x="468.989" y="280.584" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(95.625 468.989 280.584)">&#73;</text>
+<path d="M 505.196 308.773 A 250.000 250.000 0 0 1 490.970 355.671 L 417.060 325.056 A 170.000 170.000 0 0 0 426.733 293.165 Z" fill="none" stroke="black"/>
+<text x="460.957" y="320.960" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(106.875 460.957 320.960)">&#74;</text>
+<path d="M 490.970 355.671 A 250.000 250.000 0 0 1 467.867 398.893 L 401.350 354.447 A 170.000 170.000 0 0 0 417.060 325.056 Z" fill="none" stroke="black"/>
+<text x="445.203" y="358.993" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(118.125 445.203 358.993)">&#75;</text>
+<path d="M 467.867 398.893 A 250.000 250.000 0 0 1 436.777 436.777 L 380.208 380.208 A 170.000 170.000 0 0 0 401.350 354.447 Z" fill="none" stroke="black"/>
+<text x="422.332" y="393.223" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(129.375 422.332 393.223)">&#76;</text>
+<path d="M 436.777 436.777 A 250.000 250.000 0 0 1 398.893 467.867 L 354.447 401.350 A 170.000 170.000 0 0 0 380.208 380.208 Z" fill="none" stroke="black"/>
+<text x="393.223" y="422.332" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(140.625 393.223 422.332)">&#77;</text>
+<path d="M 398.893 467.867 A 250.000 250.000 0 0 1 355.671 490.970 L 325.056 417.060 A 170.000 170.000 0 0 0 354.447 401.350 Z" fill="none" stroke="black"/>
+<text x="358.993" y="445.203" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(151.875 358.993 445.203)">&#78;</text>
+<path d="M 355.671 490.970 A 250.000 250.000 0 0 1 308.773 505.196 L 293.165 426.733 A 170.000 170.000 0 0 0 325.056 417.060 Z" fill="none" stroke="black"/>
+<text x="320.960" y="460.957" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(163.125 320.960 460.957)">&#79;</text>
+<path d="M 308.773 505.196 A 250.000 250.000 0 0 1 260.000 510.000 L 260.000 430.000 A 170.000 170.000 0 0 0 293.165 426.733 Z" fill="none" stroke="black"/>
+<text x="280.584" y="468.989" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(174.375 280.584 468.989)">&#80;</text>
+<path d="M 260.000 510.000 A 250.000 250.000 0 0 1 211.227 505.196 L 226.835 426.733 A 170.000 170.000 0 0 0 260.000 430.000 Z" fill="none" stroke="black"/>
+<text x="239.416" y="468.989" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(185.625 239.416 468.989)">&#81;</text>
+<path d="M 211.227 505.196 A 250.000 250.000 0 0 1 164.329 490.970 L 194.944 417.060 A 170.000 170.000 0 0 0 226.835 426.733 Z" fill="none" stroke="black"/>
+<text x="199.040" y="460.957" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(196.875 199.040 460.957)">&#82;</text>
+<path d="M 164.329 490.970 A 250.000 250.000 0 0 1 121.107 467.867 L 165.553 401.350 A 170.000 170.000 0 0 0 194.944 417.060 Z" fill="none" stroke="black"/>
+<text x="161.007" y="445.203" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(208.125 161.007 445.203)">&#83;</text>
+<path d="M 121.107 467.867 A 250.000 250.000 0 0 1 83.223 436.777 L 139.792 380.208 A 170.000 170.000 0 0 0 165.553 401.350 Z" fill="none" stroke="black"/>
+<text x="126.777" y="422.332" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(219.375 126.777 422.332)">&#84;</text>
+<path d="M 83.223 436.777 A 250.000 250.000 0 0 1 52.133 398.893 L 118.650 354.447 A 170.000 170.000 0 0 0 139.792 380.208 Z" fill="none" stroke="black"/>
+<text x="97.668" y="393.223" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(230.625 97.668 393.223)">&#85;</text>
+<path d="M 52.133 398.893 A 250.000 250.000 0 0 1 29.030 355.671 L 102.940 325.056 A 170.000 170.000 0 0 0 118.650 354.447 Z" fill="none" stroke="black"/>
+<text x="74.797" y="358.993" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(241.875 74.797 358.993)">&#86;</text>
+<path d="M 29.030 355.671 A 250.000 250.000 0 0 1 14.804 308.773 L 93.267 293.165 A 170.000 170.000 0 0 0 102.940 325.056 Z" fill="none" stroke="black"/>
+<text x="59.043" y="320.960" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(253.125 59.043 320.960)">&#87;</text>
+<path d="M 14.804 308.773 A 250.000 250.000 0 0 1 10.000 260.000 L 90.000 260.000 A 170.000 170.000 0 0 0 93.267 293.165 Z" fill="none" stroke="black"/>
+<text x="51.011" y="280.584" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(264.375 51.011 280.584)">&#88;</text>
+<path d="M 10.000 260.000 A 250.000 250.000 0 0 1 14.804 211.227 L 93.267 226.835 A 170.000 170.000 0 0 0 90.000 260.000 Z" fill="none" stroke="black"/>
+<text x="51.011" y="239.416" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(275.625 51.011 239.416)">&#89;</text>
+<path d="M 14.804 211.227 A 250.000 250.000 0 0 1 29.030 164.329 L 102.940 194.944 A 170.000 170.000 0 0 0 93.267 226.835 Z" fill="none" stroke="black"/>
+<text x="59.043" y="199.040" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(286.875 59.043 199.040)">&#90;</text>
+<path d="M 29.030 164.329 A 250.000 250.000 0 0 1 52.133 121.107 L 118.650 165.553 A 170.000 170.000 0 0 0 102.940 194.944 Z" fill="none" stroke="black"/>
+<text x="74.797" y="161.007" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(298.125 74.797 161.007)">&#32;</text>
+<path d="M 52.133 121.107 A 250.000 250.000 0 0 1 83.223 83.223 L 139.792 139.792 A 170.000 170.000 0 0 0 118.650 165.553 Z" fill="none" stroke="black"/>
+<text x="97.668" y="126.777" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(309.375 97.668 126.777)">&#46;</text>
+<path d="M 83.223 83.223 A 250.000 250.000 0 0 1 121.107 52.133 L 165.553 118.650 A 170.000 170.000 0 0 0 139.792 139.792 Z" fill="none" stroke="black"/>
+<text x="126.777" y="97.668" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(320.625 126.777 97.668)">&#44;</text>
+<path d="M 121.107 52.133 A 250.000 250.000 0 0 1 164.329 29.030 L 194.944 102.940 A 170.000 170.000 0 0 0 165.553 118.650 Z" fill="none" stroke="black"/>
+<text x="161.007" y="74.797" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(331.875 161.007 74.797)">&#38;</text>
+<path d="M 164.329 29.030 A 250.000 250.000 0 0 1 211.227 14.804 L 226.835 93.267 A 170.000 170.000 0 0 0 194.944 102.940 Z" fill="none" stroke="black"/>
+<text x="199.040" y="59.043" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(343.125 199.040 59.043)">&#35;</text>
+<path d="M 211.227 14.804 A 250.000 250.000 0 0 1 260.000 10.000 L 260.000 90.000 A 170.000 170.000 0 0 0 226.835 93.267 Z" fill="none" stroke="black"/>
+<text x="239.416" y="51.011" font-size="28.000" text-anchor="middle" dominant-baseline="middle" transform="rotate(354.375 239.416 51.011)">&#59;</text>
+</svg>
