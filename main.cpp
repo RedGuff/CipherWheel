@@ -3,19 +3,25 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <vector>
 
 constexpr double PI = 3.14159265358979323846;
 
-struct Config {
+struct Ring {
     std::string text;
-    double outerDiameter;   // diamètre extérieur
-    double ringWidth;       // largeur de la couronne
-    double fontSize;
-    std::string output;
+    double ringWidth;     // largeur radiale en mm
+    double spacingAfter;  // espace apr�s cet anneau en mm
 };
 
-std::pair<double,double> polarToCartesian(double cx, double cy,
-                                          double r, double angle)
+struct Config {
+    double outerDiameter; // en mm
+    double fontSize;      // en mm
+    std::string output;
+    std::vector<Ring> rings;
+};
+
+std::pair<double,double> polar(double cx, double cy,
+                               double r, double angle)
 {
     return {
         cx + r * std::cos(angle),
@@ -23,89 +29,137 @@ std::pair<double,double> polarToCartesian(double cx, double cy,
     };
 }
 
-void generateSVG(const Config& cfg)
+void drawRing(std::ofstream& file,
+              double cx, double cy,
+              double Rext, double Rint,
+              const std::string& text,
+              double fontSize)
 {
-    const size_t n = cfg.text.size();
+    size_t n = text.size();
     if (n == 0) return;
 
-    const double Rext = cfg.outerDiameter / 2.0;
-    const double Rint = Rext - cfg.ringWidth;
-    const double cx = Rext + 10;
-    const double cy = Rext + 10;
-    const double svgSize = cfg.outerDiameter + 20;
+    double step = 2.0 * PI / n;
 
-    const double angleStep = 2.0 * PI / n;
-
-    std::ofstream file(cfg.output);
-    if (!file) {
-        std::cerr << "Erreur ouverture fichier\n";
-        return;
-    }
-
-    file << std::fixed << std::setprecision(3);
-    file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    file << "<svg xmlns=\"http://www.w3.org/2000/svg\" "
-         << "width=\"" << svgSize << "\" "
-         << "height=\"" << svgSize << "\">\n";
-
-    file << "<rect width=\"100%\" height=\"100%\" fill=\"white\"/>\n";
-
-    for (size_t i = 0; i < n; ++i) {
-
-        double a1 = i * angleStep - PI/2.0;
-        double a2 = (i+1) * angleStep - PI/2.0;
+    for (size_t i = 0; i < n; ++i)
+    {
+        double a1 = i * step - PI/2.0;
+        double a2 = (i+1) * step - PI/2.0;
         double amid = (a1 + a2) / 2.0;
 
-        // Points arc externe
-        auto [x1, y1] = polarToCartesian(cx, cy, Rext, a1);
-        auto [x2, y2] = polarToCartesian(cx, cy, Rext, a2);
-
-        // Points arc interne
-        auto [x3, y3] = polarToCartesian(cx, cy, Rint, a2);
-        auto [x4, y4] = polarToCartesian(cx, cy, Rint, a1);
-
-        int largeArc = 0; // toujours < 180° ici
+        auto [x1,y1] = polar(cx,cy,Rext,a1);
+        auto [x2,y2] = polar(cx,cy,Rext,a2);
+        auto [x3,y3] = polar(cx,cy,Rint,a2);
+        auto [x4,y4] = polar(cx,cy,Rint,a1);
 
         file << "<path d=\""
              << "M " << x1 << " " << y1 << " "
-             << "A " << Rext << " " << Rext << " 0 "
-             << largeArc << " 1 " << x2 << " " << y2 << " "
+             << "A " << Rext << " " << Rext << " 0 0 1 "
+             << x2 << " " << y2 << " "
              << "L " << x3 << " " << y3 << " "
-             << "A " << Rint << " " << Rint << " 0 "
-             << largeArc << " 0 " << x4 << " " << y4 << " "
-             << "Z\" fill=\"none\" stroke=\"black\"/>\n";
+             << "A " << Rint << " " << Rint << " 0 0 0 "
+             << x4 << " " << y4 << " Z\" "
+             << "fill=\"none\" stroke=\"black\" stroke-width=\"0.3\"/>\n";
 
-        // Position texte
-        double rText = (Rext + Rint) / 2.0;
-        auto [tx, ty] = polarToCartesian(cx, cy, rText, amid);
 
+              unsigned char c = static_cast<unsigned char>(text[i]); // Ok for & and other special character.
+   float fontHighCoef = 1.0;
+if (static_cast<unsigned int>(c) == 44) // "," for comma, apostrophe, half ", diacritical on the next character...
+{
+fontHighCoef = 7.0;
+}
+else
+{
+    fontHighCoef = 1.0;
+}
+
+        double rText = (fontHighCoef*Rext + Rint)/(fontHighCoef + 1.0);
+        auto [tx,ty] = polar(cx,cy,rText,amid);
         double angleDeg = amid * 180.0 / PI + 90.0;
-unsigned char c = static_cast<unsigned char>(cfg.text[i]);
-        file << "<text x=\"" << tx << "\" y=\"" << ty << "\" "
-             << "font-size=\"" << cfg.fontSize << "\" "
+
+
+
+        file << "<text x=\"" << tx << "\" y=\"" << ty << "\" ";
+           float fontSizeCoef = 1.0;
+if (static_cast<unsigned int>(c) == 44) // "," for comma, apostrophe, half ", diacritical on the next character...
+{
+fontSizeCoef = 2.0;
+}
+else
+{
+    fontSizeCoef = 1.0;
+}
+           file  << "font-size=\"" << fontSize*fontSizeCoef << "mm\" "
              << "text-anchor=\"middle\" "
              << "dominant-baseline=\"middle\" "
              << "transform=\"rotate(" << angleDeg
              << " " << tx << " " << ty << ")\">"
-             << "&#" << static_cast<unsigned int>(c) << ";" // Ok for & and other special character.
+             << "&#" << static_cast<unsigned int>(c) << ";"
              << "</text>\n";
     }
+}
+
+void generateSVG(const Config& cfg)
+{
+    constexpr double pageWidth  = 210.0;
+    constexpr double pageHeight = 297.0;
+
+    double cx = pageWidth  / 2.0;
+    double cy = pageHeight / 2.0;
+
+    double Rcurrent = cfg.outerDiameter / 2.0;
+
+    std::ofstream file(cfg.output);
+    file << std::fixed << std::setprecision(3);
+
+    file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    file << "<svg xmlns=\"http://www.w3.org/2000/svg\" "
+         << "width=\"210mm\" height=\"297mm\" "
+         << "viewBox=\"0 0 210 297\">\n";
+
+    file << "<rect width=\"100%\" height=\"100%\" fill=\"white\"/>\n";
+
+    for (const auto& ring : cfg.rings)
+    {
+        double Rext = Rcurrent;
+        double Rint = Rext - ring.ringWidth;
+
+        drawRing(file, cx, cy, Rext, Rint,
+                 ring.text, cfg.fontSize);
+
+        Rcurrent = Rint - ring.spacingAfter;
+    }
+
+ // Espace entre le rotor et le stator :
+ int radiuscut = 60; // (cfg.outerDiameter / 2) - ringWidth1 - ringWidth2;
+
+
+ file << "<circle cx=\"" << cx
+         << "\" cy=\"" << cy
+         << "\"  r=\""<< radiuscut << "\"  style=\"stroke:black; fill:none\" />\n";
+
+
+    // moyeu central
+    file << "<circle cx=\"" << cx
+         << "\" cy=\"" << cy
+         << "\" r=\"1\" fill=\"black\" />\n";
 
     file << "</svg>\n";
 }
 
 int main()
 {
-    Config cfg{
-        .text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .,&#;",
-        .outerDiameter = 500.0,
-        .ringWidth = 80.0,
-        .fontSize = 28.0,
-        .output = "cipher_dial.svg"
+    Config cfg;
+    cfg.outerDiameter = 180.0; // tient proprement sur A4
+    cfg.fontSize = 3.0;        // en mm
+    cfg.output = "triple_A4.svg";
+
+    cfg.rings = {
+        {"1234567890                      ", 15.0},
+        {"ABCDEFGHIJKLMNOPQRSTUVWXYZ .,&#;", 15.0},
+        {"ABCDEFGHIJKLMNOPQRSTUVWXYZ .,&#;", 15.0}
     };
 
     generateSVG(cfg);
 
-    std::cout << "Fichier inscrit : " << cfg.output << "\n";
-    return 0;
+    std::cout << "SVG A4 inscrit.\n";
 }
