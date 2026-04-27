@@ -4,10 +4,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
 
 constexpr double PI = 3.14159265358979323846;
 
-bool initialHoleHere = true;
+bool initialHoleHere = !true;
 int numberRing = 0;
 
 struct Ring {
@@ -109,13 +110,16 @@ else
     }
 }
 
-void generateSVG(const Config& cfg)
+void generateSVG(const Config& cfg, bool rotor = true, bool stator = true)
 {
     constexpr double pageWidth  = 210.0;
     constexpr double pageHeight = 297.0;
 
-    double cx = pageWidth  / 2.0;
-    double cy = pageHeight / 2.0;
+    //double cx = pageWidth  / 2.0;
+    int cx = pageWidth  / 2.0;
+    // cx = ()
+    // double cy = pageHeight / 2.0;
+    int cy = pageHeight / 2.0;
 
     double Rcurrent = cfg.outerDiameter / 2.0;
 
@@ -134,10 +138,21 @@ void generateSVG(const Config& cfg)
         numberRing = numberRing +1;
         double Rext = Rcurrent;
         double Rint = Rext - ring.ringWidth;
+clog << " rotor: " << rotor << endl;
+clog << " stator: " << stator << endl;
+clog << " numberRing: " << numberRing << endl;
+
+        if ((rotor && (numberRing==3))||(stator && (numberRing==2))||(stator && (numberRing==1)))
+        {
+
+clog << "rotor: " << rotor << endl;
+clog << "stator: " << stator << endl;
+clog << "numberRing: " << numberRing << endl;
+
 
         drawRing(file, cx, cy, Rext, Rint,
                  ring.text, cfg.fontSize);
-
+}
         Rcurrent = Rint - ring.spacingAfter;
     }
 
@@ -168,6 +183,13 @@ int main()
         {"ABCDEFGHIJKLMNOPQRSTUVWXYZ .,&#;", 15.0}
     };
 
-    generateSVG(cfg);
-    std::cout << "SVG A4 Ok.\n";
+    generateSVG(cfg, true, true);
+
+    cfg.output = "triple_A4_R.svg";
+    numberRing = 0;
+    generateSVG(cfg, true, false);
+    cfg.output = "triple_A4_S.svg";
+    numberRing = 0;
+    generateSVG(cfg, false, true);
+    std::cout << "SVG A4, R, S Ok.\n";
 }
